@@ -1,32 +1,36 @@
-import { FC } from "react";
-import { FieldError, UseFormRegister } from "react-hook-form";
+import {
+    FieldError,
+    FieldValues,
+    Path,
+    UseFormRegister,
+} from "react-hook-form";
 
-interface InputProps {
-  label: string;
-  type: string;
-  name: string;
-  register: UseFormRegister<any>;
-  validation: object;
-  error?: FieldError;
+interface InputProps<T extends FieldValues> {
+    label: string;
+    type: string;
+    name: Path<T>;
+    register: UseFormRegister<T>;
+    validation: object;
+    error?: FieldError;
 }
 
-const Input: FC<InputProps> = ({
-  label,
-  type,
-  name,
-  register,
-  validation,
-  error,
-}) => (
-  <div className="mb-4">
-    <label className="block text-sm font-medium mb-1">{label}</label>
-    <input
-      type={type}
-      className="border p-2 w-full"
-      {...register(name, validation)}
-    />
-    {error && <p className="text-red-500 text-sm mt-1">{error.message}</p>}
-  </div>
+const Input = <T extends FieldValues>({
+    label,
+    type,
+    name,
+    register,
+    validation,
+    error,
+}: InputProps<T>) => (
+    <div className="mb-4">
+        <label className="mb-1 block text-sm font-medium">{label}</label>
+        <input
+            type={type}
+            className="w-full border p-2"
+            {...register(name, validation)}
+        />
+        {error && <p className="mt-1 text-sm text-red-500">{error.message}</p>}
+    </div>
 );
 
 export default Input;

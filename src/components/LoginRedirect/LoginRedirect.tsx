@@ -1,24 +1,25 @@
 "use client";
 
-import { FC, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { FC, useEffect } from "react";
+
 import { useAuth } from "@/context/AuthContext";
 
 const LoginRedirect: FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-  const router = useRouter();
+    const { isAuthenticated } = useAuth();
+    const router = useRouter();
 
-  useEffect(() => {
+    useEffect(() => {
+        if (!isAuthenticated) {
+            router.push("/login");
+        }
+    }, [isAuthenticated, router]);
+
     if (!isAuthenticated) {
-      router.push("/login");
+        return null; // Return null for now while redirecting - could put a loading spinner here
     }
-  }, [isAuthenticated, router]);
 
-  if (!isAuthenticated) {
-    return null; // Return null for now while redirecting - could put a loading spinner here
-  }
-
-  return <>{children}</>;
+    return <>{children}</>;
 };
 
 export default LoginRedirect;
