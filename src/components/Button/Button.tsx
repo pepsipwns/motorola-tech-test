@@ -1,4 +1,5 @@
 "use client";
+import { classMerge } from "@/helpers/functions";
 import { cva } from "class-variance-authority";
 import Link from "next/link";
 import React, { ReactNode, FC } from "react";
@@ -28,6 +29,8 @@ interface ButtonProps {
   variant?: "primary" | "secondary" | "text";
   onClick?: () => void | null;
   href?: string | null;
+  type?: "button" | "submit" | "reset";
+  className?: string;
   children: ReactNode;
 }
 
@@ -36,18 +39,27 @@ const Button: FC<ButtonProps> = ({
   variant = "primary",
   onClick = () => {},
   href = null,
+  type = "button",
+  className = "",
   children,
 }) => {
   if (href) {
     return (
-      <Link href={href} className={buttonStyles({ size, variant })}>
+      <Link
+        href={href}
+        className={classMerge(buttonStyles({ size, variant }), className)}
+      >
         {children}
       </Link>
     );
   }
 
   return (
-    <button onClick={onClick} className={buttonStyles({ size, variant })}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={classMerge(buttonStyles({ size, variant }), className)}
+    >
       {children}
     </button>
   );
