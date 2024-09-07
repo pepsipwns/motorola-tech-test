@@ -74,18 +74,26 @@ There are multiple tests for the login page, checking the validation and the red
 
 ## Packages of Note
 
-### [https://www.npmjs.com/package/class-variance-authority](Class Variance Authority)
+### Class Variance Authority
+
+[https://www.npmjs.com/package/class-variance-authority](link)
 
 This library helps in managing conditional and variant classes efficiently. It allows for the creation of reusable, composable class utilities by defining the possible variants and conditions directly in your component code.
 
-### [https://www.npmjs.com/package/clsx](clsx)
+### clsx
+
+[https://www.npmjs.com/package/clsx](link)
 
 A utility for constructing className strings conditionally. It simplifies the process of applying dynamic class names based on component state or props, making it easier to handle conditional rendering scenarios.
 
-### [https://www.npmjs.com/package/tailwind-merge](TailwindMerge)
+### TailwindMerge
+
+[https://www.npmjs.com/package/tailwind-merge](link)
 
 This package is used to handle merging of Tailwind CSS classes, ensuring that conflicting classes are resolved correctly. It helps in avoiding redundant or conflicting class names, keeping your styles consistent and manageable. I use this in combination with clsx for one nifty function "classMerge" which can be found in `/helpers/functions.ts`
 
-### [https://react-hook-form.com/](React Hook Form)
+### React Hook Form
+
+[https://react-hook-form.com/](link)
 
 This project uses React Hook Form to manage form state and validation. React Hook Form provides a simple and efficient way to handle forms in React, offering minimal re-renders, improved performance, and an intuitive API.
