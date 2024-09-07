@@ -14,7 +14,7 @@ describe("Home Page", () => {
         jest.clearAllMocks();
     });
 
-    it("should redirect to login page when not authorized", async () => {
+    it("should redirect to login page when not authorised", async () => {
         const mockPush = jest.fn();
         (useRouter as jest.Mock).mockReturnValue({ push: mockPush });
         render(
