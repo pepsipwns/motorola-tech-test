@@ -66,7 +66,7 @@ const Login: FC = () => {
                         <p className="my-2 text-sm text-red-500">{error}</p>
                     )}
 
-                    <Button type="submit" className="w-full">
+                    <Button type="submit" className="w-full" id="login-button">
                         Login
                     </Button>
                 </form>

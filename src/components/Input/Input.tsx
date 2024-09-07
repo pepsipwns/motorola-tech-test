@@ -23,8 +23,11 @@ const Input = <T extends FieldValues>({
     error,
 }: InputProps<T>) => (
     <div className="mb-4">
-        <label className="mb-1 block text-sm font-medium">{label}</label>
+        <label htmlFor={name} className="mb-1 block text-sm font-medium">
+            {label}
+        </label>
         <input
+            id={name}
             type={type}
             className="w-full border p-2"
             {...register(name, validation)}

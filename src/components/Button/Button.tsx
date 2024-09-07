@@ -27,6 +27,7 @@ const buttonStyles = cva(
 );
 
 interface ButtonProps {
+    id?: string;
     size?: "sm" | "md" | "lg";
     variant?: "primary" | "secondary" | "text";
     onClick?: () => void | null;
@@ -37,6 +38,7 @@ interface ButtonProps {
 }
 
 const Button: FC<ButtonProps> = ({
+    id,
     size = "md",
     variant = "primary",
     onClick = () => {},
@@ -48,6 +50,8 @@ const Button: FC<ButtonProps> = ({
     if (href) {
         return (
             <Link
+                id={id}
+                data-testid={id}
                 href={href}
                 className={classMerge(
                     buttonStyles({ size, variant }),
@@ -61,6 +65,8 @@ const Button: FC<ButtonProps> = ({
 
     return (
         <button
+            id={id}
+            data-testid={id}
             type={type}
             onClick={onClick}
             className={classMerge(buttonStyles({ size, variant }), className)}
